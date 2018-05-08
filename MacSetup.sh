@@ -60,7 +60,6 @@ git clone git@bitbucket.org:unifiedpost/paynxt_terraform.git
 git clone git@bitbucket.org:unifiedpost/paynxt_jenkins.git
 git clone --recurse-submodules git@bitbucket.org:unifiedpost/paynxt_packer.git
 
-
 #Install Zsh & Oh My Zsh
 echo "Installing Oh My ZSH..."
 curl -L http://install.ohmyz.sh | sh
