@@ -53,6 +53,14 @@ git clone git@github.com:bradp/dotfiles.git .dotfiles
 cd .dotfiles
 sh symdotfiles
 
+#Install UP git repos
+echo "Copying paynxt repos"
+git clone git@bitbucket.org:unifiedpost/paynxt_tools.git
+git clone git@bitbucket.org:unifiedpost/paynxt_terraform.git
+git clone git@bitbucket.org:unifiedpost/paynxt_jenkins.git
+git clone --recurse-submodules git@bitbucket.org:unifiedpost/paynxt_packer.git
+
+
 #Install Zsh & Oh My Zsh
 echo "Installing Oh My ZSH..."
 curl -L http://install.ohmyz.sh | sh
@@ -176,8 +184,17 @@ echo "Please setup and sync Dropbox, and then run this script again."
 read -p "Press [Enter] key after this..."
 
 echo "Restoring setup from Mackup..."
-#mackup restore @TODO uncomment
+mackup restore 
 
+#Copy AWS CLI Sign-in files
+cd ~/paynxt_tools/signin 
+cp signinaws.conf.example signin.conf
+pip install -r requirements.txt
+
+#Install boto
+git clone git://github.com/boto/boto.git
+cd boto
+python setup.py install
 
 echo "Setting some Mac settings..."
 
