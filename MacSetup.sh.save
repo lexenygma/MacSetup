@@ -101,6 +101,7 @@ apps=(
   ncdu
   nmap
   node
+  packer
   poppler
   python
   python3
@@ -134,7 +135,6 @@ casks=(
   handbrake
   hyper
   iina
-  iterm2
   istat-menus
   istat-server  
   launchrocket
@@ -173,6 +173,12 @@ brew cask alfred link
 brew cask cleanup
 brew cleanup
 
+@TODO uncomment
+
+
+echo "Setting some Mac settings..."
+
+#"Disabling sys
 echo "Please setup and sync Dropbox, and then run this script again."
 read -p "Press [Enter] key after this..."
 
