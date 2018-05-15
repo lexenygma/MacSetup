@@ -15,6 +15,8 @@ if test ! $(which brew); then
   ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 
+gem install bcrypt
+
 # Update homebrew recipes
 echo "Updating homebrew..."
 brew update
@@ -167,11 +169,16 @@ casks=(
 echo "installing apps with Cask..."
 brew cask install --appdir="/Applications" ${casks[@]}
 brew install --appdir="/Applications" ${apps[@]}
+# Install bcrypt hash tool
+brew tap gibsjose/crypto
+brew install bcrypt-hash
 
 brew cask alfred link
 
 brew cask cleanup
 brew cleanup
+
+
 
 echo "Please setup and sync Dropbox, and then run this script again."
 read -p "Press [Enter] key after this..."
