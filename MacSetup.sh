@@ -67,7 +67,6 @@ git clone git@bitbucket.org:unifiedpost/upnxt_platform_check_mk.git
 
 
 
-
 #Install Zsh & Oh My Zsh
 echo "Installing Oh My ZSH..."
 curl -L http://install.ohmyz.sh | sh
