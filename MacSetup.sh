@@ -59,6 +59,11 @@ git clone git@bitbucket.org:unifiedpost/paynxt_tools.git
 git clone git@bitbucket.org:unifiedpost/paynxt_terraform.git
 git clone git@bitbucket.org:unifiedpost/paynxt_jenkins.git
 git clone --recurse-submodules git@bitbucket.org:unifiedpost/paynxt_packer.git
+git clone git@bitbucket.org:unifiedpost/upnxt_platform_docker_slug_builder.git
+git clone git@bitbucket.org:unifiedpost/upnxt_platform_check_mk.git
+git clone git@bitbucket.org:unifiedpost/upnxt_platform_check_mk.git
+
+
 
 
 #Install Zsh & Oh My Zsh
