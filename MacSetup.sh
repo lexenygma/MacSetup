@@ -5,6 +5,12 @@ echo "Please add this public key to Github \n"
 echo "https://github.com/account/ssh \n"
 read -p "Press [Enter] key after this..."
 
+# Install dropbox
+cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
+~/.dropbox-dist/dropboxd
+echo "Please login to dropbox and start the sync"
+read -p "Press [Enter] key after this..."
+
 echo "Installing xcode-stuff"
 xcode-select --install
 
@@ -15,6 +21,7 @@ if test ! $(which brew); then
   ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 
+# Install bcrypt pw encryption/decryption tool 
 gem install bcrypt
 
 # Update homebrew recipes
@@ -42,6 +49,7 @@ brew install trash
 brew install svn
 brew install mackup
 brew install node
+brew install dropbox
 
 
 #@TODO install our custom fonts and stuff
@@ -81,6 +89,10 @@ git clone git://github.com/zsh-users/zsh-syntax-highlighting.git
 
 echo "Setting ZSH as shell..."
 chsh -s /bin/zsh
+
+# Install dropbox
+cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
+~/.dropbox-dist/dropboxd
 
 # Apps
 apps=(
@@ -192,8 +204,11 @@ brew cleanup
 
 
 
-echo "Please setup and sync Dropbox, and then run this script again."
+echo "Please check Dropbox sync status."
 read -p "Press [Enter] key after this..."
+
+# Copy keys 
+rsync -av ~/Dropbox/llaves/.ssh ~/.ssh 
 
 echo "Restoring setup from Mackup..."
 mackup restore 
@@ -202,6 +217,12 @@ mackup restore
 cd ~/paynxt_tools/signin 
 cp signinaws.conf.example signin.conf
 pip install -r requirements.txt
+
+#Copy AWS CLI Credentials
+cp ~/Dropbox/llaves/.aws ~/.aws 
+
+#Copy UP VPN Keys
+cp ~/Dropbox/llaves/ca.crt ~/Dropbox/llaves/upcris.key ~/Dropbox/llaves/upcris.pem ~/UPKeys
 
 #Install boto
 git clone git://github.com/boto/boto.git
